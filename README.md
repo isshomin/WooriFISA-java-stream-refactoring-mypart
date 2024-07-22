@@ -14,17 +14,17 @@ public void beneficiaryProjectUpdate(String projectName, Beneficiary people) {
 		}
 }
 
-------------------------------------------변환----------------------------------------------------------------
 
 Stream API 변환 후
+
 public void beneficiaryProjectUpdate(String projectName, Beneficiary people) {
 	donationProjectList.stream()
 	.filter(project -> project != null && project.getTalentDonationProjectName().equals(projectName))
 	.findFirst().ifPresent(project1 -> project1.setProjectBeneficiary(people));
 }
 
-------------------------------------------------------------------------------------------------------------
 변환 전 코드
+
 public TalentDonationProject getDonationProject(String projectName) {
 		for (TalentDonationProject project : donationProjectList) {
 			if (project != null && project.getTalentDonationProjectName().equals(projectName)) {
@@ -35,9 +35,9 @@ public TalentDonationProject getDonationProject(String projectName) {
 		return null;
   }
 
-------------------------------------------변환----------------------------------------------------------------
 
 Stream API 변환 후
+
 public TalentDonationProject getDonationProject(String projectName) {
 		Optional<TalentDonationProject> findproject = donationProjectList.stream()
 				.filter(project -> project != null && project.getTalentDonationProjectName()
@@ -46,4 +46,3 @@ public TalentDonationProject getDonationProject(String projectName) {
 		return findproject.orElse(null);
 }
 
-------------------------------------------------------------------------------------------------------------
