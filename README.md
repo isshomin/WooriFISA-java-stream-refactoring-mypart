@@ -22,6 +22,7 @@ public void beneficiaryProjectUpdate(String projectName, Beneficiary people) {
 	.filter(project -> project != null && project.getTalentDonationProjectName().equals(projectName))
 	.findFirst().ifPresent(project1 -> project1.setProjectBeneficiary(people));
 }
+
 ------------------------------------------------------------------------------------------------------------
 변환 전 코드
 public TalentDonationProject getDonationProject(String projectName) {
@@ -44,4 +45,5 @@ public TalentDonationProject getDonationProject(String projectName) {
 		
 		return findproject.orElse(null);
 }
+
 ------------------------------------------------------------------------------------------------------------
