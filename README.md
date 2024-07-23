@@ -3,6 +3,9 @@
 ------------------------------------------------------------------------------------------------------------
 ### 변환 전 코드
 ```
+import org.junit.Test;
+
+@Test
 public void beneficiaryProjectUpdate(String projectName, Beneficiary people) {
 	for (TalentDonationProject project : donationProjectList) {
 		if (project != null && project.getTalentDonationProjectName().equals(projectName)) {
@@ -16,6 +19,9 @@ public void beneficiaryProjectUpdate(String projectName, Beneficiary people) {
 
 ### Stream API 변환 후
 ```
+import org.junit.Test;
+
+@Test
 public void beneficiaryProjectUpdate(String projectName, Beneficiary people) {
 	donationProjectList.stream()
 	.filter(project -> project != null && project.getTalentDonationProjectName().equals(projectName))
@@ -25,6 +31,9 @@ public void beneficiaryProjectUpdate(String projectName, Beneficiary people) {
 
 ### 변환 전 코드
 ```
+import org.junit.Test;
+
+@Test
 public TalentDonationProject getDonationProject(String projectName) {
 		for (TalentDonationProject project : donationProjectList) {
 			if (project != null && project.getTalentDonationProjectName().equals(projectName)) {
@@ -38,6 +47,9 @@ public TalentDonationProject getDonationProject(String projectName) {
 
 ### Stream API 변환 후
 ```
+import org.junit.Test;
+
+@Test
 public TalentDonationProject getDonationProject(String projectName) {
 		Optional<TalentDonationProject> findproject = donationProjectList.stream()
 				.filter(project -> project != null && project.getTalentDonationProjectName()
